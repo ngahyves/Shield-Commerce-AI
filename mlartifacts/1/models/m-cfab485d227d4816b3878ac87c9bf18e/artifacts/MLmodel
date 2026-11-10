@@ -1,0 +1,121 @@
+artifact_path: mlflow-artifacts:/1/models/m-cfab485d227d4816b3878ac87c9bf18e/artifacts
+flavors:
+  lightgbm:
+    code: null
+    data: model.skops
+    lgb_version: 4.7.0
+    model_class: lightgbm.sklearn.LGBMClassifier
+    serialization_format: skops
+    skops_trusted_types:
+    - collections.OrderedDict
+    - lightgbm.sklearn.LGBMClassifier
+    - lightgbm.sklearn.LGBMRegressor
+    - lightgbm.basic.Booster
+  python_function:
+    data: model.skops
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.11.9
+is_signature_from_type_hint: false
+mlflow_version: 3.17.2
+model_id: m-cfab485d227d4816b3878ac87c9bf18e
+model_size_bytes: 15701145
+model_uuid: m-cfab485d227d4816b3878ac87c9bf18e
+prompts: null
+run_id: 137eb380550c4680b11deab3d571f467
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "buyer_region", "required": true}, {"type":
+    "double", "name": "buyer_email_domain", "required": true}, {"type": "double",
+    "name": "device_os", "required": true}, {"type": "double", "name": "browser",
+    "required": true}, {"type": "double", "name": "card_id", "required": true}, {"type":
+    "double", "name": "card_bank_1", "required": true}, {"type": "double", "name":
+    "screen_resolution", "required": true}, {"type": "float", "name": "product_type",
+    "required": true}, {"type": "float", "name": "card_network", "required": true},
+    {"type": "float", "name": "card_category", "required": true}, {"type": "float",
+    "name": "buyer_country_code", "required": true}, {"type": "float", "name": "recipient_email_domain",
+    "required": false}, {"type": "float", "name": "id_35", "required": false}, {"type":
+    "float", "name": "m4", "required": false}, {"type": "float", "name": "id_29",
+    "required": false}, {"type": "float", "name": "id_15", "required": false}, {"type":
+    "float", "name": "id_28", "required": false}, {"type": "float", "name": "id_38",
+    "required": false}, {"type": "float", "name": "device_type", "required": false},
+    {"type": "float", "name": "id_16", "required": false}, {"type": "float", "name":
+    "id_36", "required": false}, {"type": "float", "name": "id_37", "required": false},
+    {"type": "float", "name": "id_12", "required": false}, {"type": "float", "name":
+    "m6", "required": false}, {"type": "float", "name": "device_family", "required":
+    true}, {"type": "float", "name": "amount", "required": true}, {"type": "float",
+    "name": "card_bank_2", "required": true}, {"type": "float", "name": "card_phone_country",
+    "required": true}, {"type": "float", "name": "distance_buyer_merchant", "required":
+    false}, {"type": "float", "name": "distance_secondary", "required": false}, {"type":
+    "float", "name": "d5", "required": false}, {"type": "float", "name": "v258", "required":
+    false}, {"type": "float", "name": "v232", "required": false}, {"type": "float",
+    "name": "v229", "required": false}, {"type": "float", "name": "d2", "required":
+    false}, {"type": "float", "name": "v52", "required": false}, {"type": "float",
+    "name": "v201", "required": false}, {"type": "float", "name": "v243", "required":
+    false}, {"type": "float", "name": "d8", "required": false}, {"type": "float",
+    "name": "v171", "required": false}, {"type": "float", "name": "v140", "required":
+    false}, {"type": "float", "name": "v187", "required": false}, {"type": "float",
+    "name": "v48", "required": false}, {"type": "float", "name": "v147", "required":
+    false}, {"type": "float", "name": "v283", "required": true}, {"type": "float",
+    "name": "c9", "required": true}, {"type": "float", "name": "v45", "required":
+    false}, {"type": "float", "name": "d10", "required": false}, {"type": "float",
+    "name": "c2", "required": true}, {"type": "float", "name": "d15", "required":
+    false}, {"type": "float", "name": "v38", "required": false}, {"type": "float",
+    "name": "v44", "required": false}, {"type": "float", "name": "id_01", "required":
+    false}, {"type": "float", "name": "v87", "required": false}, {"type": "float",
+    "name": "c13", "required": true}, {"type": "float", "name": "c1", "required":
+    true}, {"type": "float", "name": "v222", "required": false}, {"type": "float",
+    "name": "v35", "required": false}, {"type": "float", "name": "v294", "required":
+    true}, {"type": "float", "name": "v86", "required": false}, {"type": "float",
+    "name": "c11", "required": true}, {"type": "float", "name": "v37", "required":
+    false}, {"type": "float", "name": "id_07", "required": false}, {"type": "float",
+    "name": "v150", "required": false}, {"type": "float", "name": "v78", "required":
+    false}, {"type": "float", "name": "id_26", "required": false}, {"type": "float",
+    "name": "v261", "required": false}, {"type": "float", "name": "d4", "required":
+    false}, {"type": "float", "name": "v236", "required": false}, {"type": "float",
+    "name": "v102", "required": true}, {"type": "float", "name": "v248", "required":
+    false}, {"type": "float", "name": "v77", "required": false}, {"type": "float",
+    "name": "id_32", "required": false}, {"type": "float", "name": "v12", "required":
+    false}, {"type": "float", "name": "v75", "required": false}, {"type": "float",
+    "name": "v249", "required": false}, {"type": "float", "name": "v53", "required":
+    false}, {"type": "float", "name": "c6", "required": true}, {"type": "float", "name":
+    "d11", "required": false}, {"type": "float", "name": "id_20", "required": false},
+    {"type": "float", "name": "v253", "required": false}, {"type": "float", "name":
+    "v62", "required": false}, {"type": "float", "name": "v192", "required": false},
+    {"type": "float", "name": "v47", "required": false}, {"type": "float", "name":
+    "v247", "required": false}, {"type": "float", "name": "v292", "required": true},
+    {"type": "float", "name": "v83", "required": false}, {"type": "float", "name":
+    "id_18", "required": false}, {"type": "float", "name": "v195", "required": false},
+    {"type": "float", "name": "v145", "required": false}, {"type": "float", "name":
+    "v56", "required": false}, {"type": "float", "name": "id_08", "required": false},
+    {"type": "float", "name": "v254", "required": false}, {"type": "float", "name":
+    "id_14", "required": false}, {"type": "float", "name": "id_22", "required": false},
+    {"type": "float", "name": "v291", "required": true}, {"type": "float", "name":
+    "id_02", "required": false}, {"type": "float", "name": "v252", "required": false},
+    {"type": "float", "name": "id_06", "required": false}, {"type": "integer", "name":
+    "uid_is_known", "required": true}, {"type": "integer", "name": "uid_transaction_count",
+    "required": true}, {"type": "float", "name": "uid_amount_mean", "required": false},
+    {"type": "float", "name": "uid_amount_std", "required": false}, {"type": "float",
+    "name": "uid_amount_max", "required": false}, {"type": "float", "name": "uid_amount_sum",
+    "required": false}, {"type": "float", "name": "uid_d10_mean", "required": false},
+    {"type": "float", "name": "uid_d15_mean", "required": false}, {"type": "integer",
+    "name": "velocity_count_1h", "required": true}, {"type": "integer", "name": "velocity_count_24h",
+    "required": true}, {"type": "integer", "name": "velocity_count_7d", "required":
+    true}, {"type": "float", "name": "velocity_amount_sum_24h", "required": false},
+    {"type": "float", "name": "velocity_amount_sum_7d", "required": false}, {"type":
+    "integer", "name": "hour_of_day", "required": true}, {"type": "integer", "name":
+    "day_of_week", "required": true}, {"type": "integer", "name": "is_weekend", "required":
+    true}, {"type": "integer", "name": "is_null_dist1", "required": true}, {"type":
+    "integer", "name": "is_null_dist2", "required": true}, {"type": "integer", "name":
+    "is_null_addr1", "required": true}, {"type": "integer", "name": "is_null_device_type",
+    "required": true}]'
+  outputs: '[{"type": "integer", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-11-03 03:26:58.381479'

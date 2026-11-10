@@ -1,0 +1,79 @@
+services:
+  api:
+    build: .
+    container_name: shieldcommerce-api
+    ports:
+      - "8002:8001"
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      REDIS_URL: "redis://redis:6379/0"
+      QDRANT_HOST: "qdrant"
+      QDRANT_PORT: "6333"
+      QDRANT_GRPC_PORT: "6334"
+    volumes:
+      - ./data/processed:/app/data/processed:ro    
+      - ./data/models:/app/data/models:rw          
+      - ./logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: shieldcommerce-redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: shieldcommerce-qdrant
+    ports:
+      - "6335:6333"
+      - "6336:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: shieldcommerce-prometheus
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: shieldcommerce-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  qdrant_data:
+  prometheus_data:
+  grafana_data:

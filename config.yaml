@@ -1,0 +1,145 @@
+# ═══════════════════════════════════════════════════════════════════
+# ShieldCommerce AI — Application configuration
+# Non-secret values only. Secrets → .env
+# ═══════════════════════════════════════════════════════════════════
+
+app:
+  name: "shieldcommerce"
+  version: "1.0.0"
+  environment: "dev"          # dev | staging | prod
+
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  gold_parquet: "data/processed/gold_export.parquet"
+  models: "data/models"
+  mlruns: "mlruns"
+  logs: "logs"
+
+# ─── Databricks / Spark
+databricks:
+  catalog: "fraud"
+  gold_table: "fraud.gold.fraud_features_final"
+  bronze_table: "fraud.bronze.transactions_raw"
+
+# ─── Temporal split (from Part 4/5 of notebook)
+constants:
+  seconds_per_day: 86400
+
+split:
+  train_start_day: 95          # W60 sliding window
+  train_end_day: 155
+  test_start_day: 155
+  test_end_day: 182
+
+# ─── Feature engineering
+features:
+  target_col: "is_fraud"
+  te_cols:
+    - buyer_region
+    - buyer_email_domain
+    - device_os
+    - browser
+    - card_id
+    - card_bank_1
+    - screen_resolution
+  metadata_cols:
+    - transaction_id
+    - is_fraud
+    - transaction_dt
+    - d1
+    - d1n
+    - uid
+
+target_encoding:
+  smooth: 20
+  cv: 5
+  shuffle: true
+  random_state: 42
+
+ordinal_encoding:
+  handle_unknown: "use_encoded_value"
+  unknown_value: -1
+
+# ─── Model (from Optuna Part 7 — to be updated after new run)
+model:
+  algorithm: "lightgbm"
+  version: "1.0.0"
+  name: "lgbm-optuna"
+  path: "data/models/lgbm-optuna-v1.0.0.pkl"
+  model:
+  params:
+    objective: "binary"
+    n_estimators: 1500
+    learning_rate: 0.034902854606300035
+    num_leaves: 95
+    min_child_samples: 21
+    reg_alpha: 2.7366339528977597
+    reg_lambda: 0.17433860342268107
+    feature_fraction: 0.6849356442713105
+    colsample_bytree: 0.6849356442713105
+    bagging_fraction: 0.6727299868828402
+    subsample: 0.6727299868828402
+    bagging_freq: 2
+    subsample_freq: 2
+    scale_pos_weight: 27.6
+    random_state: 42
+
+# ─── Calibration (fit on validation set)
+calibration:
+  method: "platt"           # isotonic | platt | none
+  split_day: 165
+  path: "data/models/calibrator.pkl"
+
+# ─── Decision thresholds (from Part 5 — cost-optimal)
+
+thresholds:
+  block: 0.7346         
+  review: 0.0412
+  risk_tier:
+    critical: 0.7346    # aligns with block
+    high: 0.2753        # ex-block obsolète — devient tier "high"
+    medium: 0.0412      # aligns with review
+
+# ─── Business cost assumption
+cost:
+  review:
+    fn_multiplier: 10  # Missing a fraud is costly (we investigate broadly)
+    fp_multiplier: 1   # A false positive costs almost nothing (just a check)
+  block:
+    fn_multiplier: 3   # Missing a fraud is annoying...
+    fp_multiplier: 15  # ...but blocking a legitimate customer by mistake is unacceptable!
+
+# ─── API
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 2
+  max_batch_size: 256
+  timeout_seconds: 30
+
+# ─── Monitoring
+monitoring:
+  drift_threshold: 0.20        # Evidently drift share
+  drift_check_freq_hours: 24
+
+# Agent and embedding
+agent:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  enable_similar_search: true
+  llm_provider: "groq"
+  llm_model: "openai/gpt-oss-20b"
+  llm_provider_2: "gemini"
+  llm_model_2: "gemini-3.5-flash-lite"
+  llm_temperature: 0.0
+  llm_max_tokens: 2000
+
+cache:
+  redis_url: "redis://redis:6379/0"
+  ttl_seconds: 86400
+
+qdrant:
+  host: "qdrant"
+  port: 6333
+  grpc_port: 6334
+  collection: "shieldcommerce_fraud_cases" 

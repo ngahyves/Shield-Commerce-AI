@@ -1,0 +1,54 @@
+# ─── Python ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ─── Environments ───────────────────────────────────────
+com_env/
+.venv/
+env/
+venv/
+
+# ─── Secrets ────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── Data ──
+data/
+mini_gold.parquet
+data_image/
+Dockerfile.demo
+
+# ─── MLflow / logs / coverage ───────────────────────────
+mlruns/
+logs/
+htmlcov/
+.coverage
+coverage.xml
+report.html
+
+# ─── Benchmarks / reports ───────────────
+baselines/
+benchmarks/
+project_plan.md
+*.csv
+!data_sample/**/*.csv
+
+# ─── IDE / OS ───────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ─── Docker ─────────────────────────────────────────────
+.dockerignore.bak
+
+# ─── Git ────────────────────────────────────────────────
+.git/
+.gitignore.bak
