@@ -52,3 +52,11 @@ Thumbs.db
 # ─── Git ────────────────────────────────────────────────
 .git/
 .gitignore.bak
+# ─── Reports locust ─────────────────────
+reports/locust/*.csv
+reports/locust/*.html
+!reports/locust/.gitkeep
+
+# ─── Secrets K8s ───────────────────────────────
+infra/k8s/secrets.yaml
+infra/k8s/*-secret.yaml

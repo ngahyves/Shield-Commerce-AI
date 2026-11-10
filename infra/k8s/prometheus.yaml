@@ -1,0 +1,65 @@
+# --- Prometheus ConfigMap (first prometheus config for docker-compose) ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+
+    scrape_configs:
+      - job_name: "shieldcommerce-api"
+        static_configs:
+          - targets: ["api:8001"]
+        metrics_path: "/metrics"
+
+      - job_name: "prometheus"
+        static_configs:
+          - targets: ["localhost:9090"]
+---
+# --- Prometheus Deployment ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: prometheus}
+  template:
+    metadata:
+      labels: {app: prometheus}
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:latest
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.retention.time=1h"
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: config
+              mountPath: /etc/prometheus
+          resources:
+            requests: {memory: "256Mi", cpu: "100m"}
+            limits:   {memory: "1Gi",  cpu: "500m"}
+      volumes:
+        - name: config
+          configMap:
+            name: prometheus-config
+---
+# --- Prometheus Service ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+spec:
+  type: NodePort
+  selector: {app: prometheus}
+  ports:
+    - port: 9090
+      targetPort: 9090
+      nodePort: 30090

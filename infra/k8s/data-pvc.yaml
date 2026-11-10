@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: api-data-pv
+spec:
+  capacity:
+    storage: 5Gi      # capacity (5 GB)
+  accessModes:
+    - ReadOnlyMany  # Many pods can read at same time
+  persistentVolumeReclaimPolicy: Retain   # Do not delete the data when uninstalling
+  storageClassName: local-path       # provisioner provided by k3s
+  hostPath:
+    path: /data # ← Real folder in the code space
+    type: Directory
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: api-data-pvc
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 5Gi
