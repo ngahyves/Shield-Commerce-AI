@@ -1,0 +1,295 @@
+{
+  "model_version": "1.0.0",
+  "mlflow_run_id": "c1f00dc4776e4cadbad0300239866851",
+  "mlflow_model_uri": "runs:/c1f00dc4776e4cadbad0300239866851/classifier",
+  "feature_names_out": [
+    "product_type",
+    "card_network",
+    "card_category",
+    "buyer_region",
+    "buyer_country_code",
+    "buyer_email_domain",
+    "recipient_email_domain",
+    "device_os",
+    "browser",
+    "screen_resolution",
+    "id_35",
+    "m4",
+    "id_29",
+    "id_15",
+    "id_28",
+    "id_38",
+    "device_type",
+    "id_16",
+    "id_36",
+    "id_37",
+    "id_12",
+    "m6",
+    "device_family",
+    "amount",
+    "card_id",
+    "card_bank_1",
+    "card_bank_2",
+    "card_phone_country",
+    "distance_buyer_merchant",
+    "distance_secondary",
+    "d5",
+    "v258",
+    "v232",
+    "v229",
+    "d2",
+    "v52",
+    "v201",
+    "v243",
+    "d8",
+    "v171",
+    "v140",
+    "v187",
+    "v48",
+    "v147",
+    "v283",
+    "c9",
+    "v45",
+    "d10",
+    "c2",
+    "d15",
+    "v38",
+    "v44",
+    "id_01",
+    "v87",
+    "c13",
+    "c1",
+    "v222",
+    "v35",
+    "v294",
+    "v86",
+    "c11",
+    "v37",
+    "id_07",
+    "v150",
+    "v78",
+    "id_26",
+    "v261",
+    "d4",
+    "v236",
+    "v102",
+    "v248",
+    "v77",
+    "id_32",
+    "v12",
+    "v75",
+    "v249",
+    "v53",
+    "c6",
+    "d11",
+    "id_20",
+    "v253",
+    "v62",
+    "v192",
+    "v47",
+    "v247",
+    "v292",
+    "v83",
+    "id_18",
+    "v195",
+    "v145",
+    "v56",
+    "id_08",
+    "v254",
+    "id_14",
+    "id_22",
+    "v291",
+    "id_02",
+    "v252",
+    "id_06",
+    "uid_is_known",
+    "uid_transaction_count",
+    "uid_amount_mean",
+    "uid_amount_std",
+    "uid_amount_max",
+    "uid_amount_sum",
+    "uid_d10_mean",
+    "uid_d15_mean",
+    "velocity_count_1h",
+    "velocity_count_24h",
+    "velocity_count_7d",
+    "velocity_amount_sum_24h",
+    "velocity_amount_sum_7d",
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend",
+    "is_null_dist1",
+    "is_null_dist2",
+    "is_null_addr1",
+    "is_null_device_type",
+    "buyer_region_te",
+    "buyer_email_domain_te",
+    "device_os_te",
+    "browser_te",
+    "card_id_te",
+    "card_bank_1_te",
+    "screen_resolution_te"
+  ],
+  "calibration": {
+    "method": "platt",
+    "brier_before": 0.028996478421322046,
+    "brier_after": 0.023070586041167483,
+    "brier_improvement": 0.005925892380154563
+  },
+  "thresholds": {
+    "block": 0.7346238302408974,
+    "review": 0.04116140469250224
+  },
+  "metrics": {
+    "threshold_independent": {
+      "pr_auc": 0.5665621951073416,
+      "roc_auc": 0.902380445830492,
+      "lift": 15.064191411146764
+    },
+    "at_review": {
+      "threshold": 0.04116140469250224,
+      "precision": 0.3609209707529558,
+      "recall": 0.6579693703913784,
+      "f1": 0.46614426361261807,
+      "f2": 0.5649717514124294,
+      "f3": 0.6079345946229233,
+      "mcc": 0.4610683196675071,
+      "cost": 8084,
+      "n_predicted": 3214
+    },
+    "at_block": {
+      "threshold": 0.7346238302408974,
+      "precision": 0.9134396355353075,
+      "recall": 0.2274532047646058,
+      "f1": 0.3642143505903724,
+      "f2": 0.26765451875584034,
+      "f3": 0.24592174659634491,
+      "mcc": 0.4476034460700458,
+      "cost": 4656,
+      "n_predicted": 439
+    },
+    "at_0_5": {
+      "threshold": 0.5,
+      "precision": 0.7683557394002068,
+      "recall": 0.4214407260351673,
+      "f1": 0.5443223443223443,
+      "f2": 0.4632747225339818,
+      "f3": 0.4413686586669835,
+      "mcc": 0.5574478287993407,
+      "cost": 10424,
+      "n_predicted": 967
+    }
+  },
+  "cost_assumption": {
+    "review": {
+      "fn": 10,
+      "fp": 1
+    },
+    "block": {
+      "fn": 3,
+      "fp": 15
+    }
+  },
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "card_id_te",
+      "mean_abs_shap": 1.135811
+    },
+    {
+      "rank": 2,
+      "feature": "c13",
+      "mean_abs_shap": 0.5694
+    },
+    {
+      "rank": 3,
+      "feature": "card_bank_1_te",
+      "mean_abs_shap": 0.275721
+    },
+    {
+      "rank": 4,
+      "feature": "card_bank_1",
+      "mean_abs_shap": 0.273135
+    },
+    {
+      "rank": 5,
+      "feature": "amount",
+      "mean_abs_shap": 0.257347
+    },
+    {
+      "rank": 6,
+      "feature": "m4",
+      "mean_abs_shap": 0.236561
+    },
+    {
+      "rank": 7,
+      "feature": "d2",
+      "mean_abs_shap": 0.198721
+    },
+    {
+      "rank": 8,
+      "feature": "v48",
+      "mean_abs_shap": 0.193098
+    },
+    {
+      "rank": 9,
+      "feature": "c1",
+      "mean_abs_shap": 0.190424
+    },
+    {
+      "rank": 10,
+      "feature": "d15",
+      "mean_abs_shap": 0.153954
+    },
+    {
+      "rank": 11,
+      "feature": "buyer_region",
+      "mean_abs_shap": 0.150904
+    },
+    {
+      "rank": 12,
+      "feature": "distance_buyer_merchant",
+      "mean_abs_shap": 0.146423
+    },
+    {
+      "rank": 13,
+      "feature": "buyer_region_te",
+      "mean_abs_shap": 0.145879
+    },
+    {
+      "rank": 14,
+      "feature": "buyer_email_domain_te",
+      "mean_abs_shap": 0.145073
+    },
+    {
+      "rank": 15,
+      "feature": "c11",
+      "mean_abs_shap": 0.143854
+    },
+    {
+      "rank": 16,
+      "feature": "m6",
+      "mean_abs_shap": 0.135462
+    },
+    {
+      "rank": 17,
+      "feature": "card_id",
+      "mean_abs_shap": 0.125138
+    },
+    {
+      "rank": 18,
+      "feature": "c2",
+      "mean_abs_shap": 0.121044
+    },
+    {
+      "rank": 19,
+      "feature": "device_os",
+      "mean_abs_shap": 0.120936
+    },
+    {
+      "rank": 20,
+      "feature": "buyer_email_domain",
+      "mean_abs_shap": 0.111769
+    }
+  ]
+}
