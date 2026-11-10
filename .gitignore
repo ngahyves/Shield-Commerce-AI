@@ -20,7 +20,7 @@ venv/
 !.env.example
 
 # ─── Data ──
-data/
+
 mini_gold.parquet
 data_image/
 Dockerfile.demo
