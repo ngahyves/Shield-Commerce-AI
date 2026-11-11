@@ -550,7 +550,8 @@ for the rationale.
 | Top drifting feature | `v145` (PSI = **3.13**) | Vesta artifact |
 | Behavioral drift | `velocity_amount_sum_24h` (0.78), `velocity_amount_sum_7d` (0.70), `uid_amount_sum` (0.32) | Fraudsters adapt their amounts |
 | Vesta artifact drift | `v236` (0.50), `v171` (0.29) | Sliding-window counters desynchronize |
-| Report | [`dashboard/drift_train_vs_test_20261106_061747.html`](dashboard/drift_train_vs_test_20261106_061747.html) | Full Evidently HTML |
+| Report (live) | [View drift report](https://ngahyves.github.io/Shield-Commerce-AI/dashboard/drift_train_vs_test_20261106_061747.html) | Rendered Evidently HTML via GitHub Pages |
+| Report (source) | [`dashboard/drift_train_vs_test_20261106_061747.html`](dashboard/drift_train_vs_test_20261106_061747.html) | Source HTML file in repo |
 
 **Key insight**: the drift is **explained by two distinct phenomena** —
 behavioral shift (transaction amounts change over time) and Vesta counter
