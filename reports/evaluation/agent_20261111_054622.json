@@ -1,0 +1,376 @@
+{
+  "timestamp": "2026-11-11T05:46:22.474192",
+  "config": {
+    "n_fraud": 5,
+    "n_legit": 5
+  },
+  "tx_ids": [
+    3559579,
+    3558802,
+    3560159,
+    3528893,
+    3555358,
+    3528265,
+    3543542,
+    3525759,
+    3550361,
+    3499418
+  ],
+  "labels": {
+    "3559579": 1,
+    "3558802": 1,
+    "3560159": 1,
+    "3528893": 1,
+    "3555358": 1,
+    "3528265": 0,
+    "3543542": 0,
+    "3525759": 0,
+    "3550361": 0,
+    "3499418": 0
+  },
+  "q1_retrieval": {
+    "summary": {
+      "total": 40,
+      "pass": 40,
+      "fail": 0,
+      "pass_rate": 1.0
+    },
+    "per_check": {
+      "transaction": {
+        "pass": 10,
+        "fail": 0
+      },
+      "customer": {
+        "pass": 10,
+        "fail": 0
+      },
+      "shap": {
+        "pass": 10,
+        "fail": 0
+      },
+      "similar_cases": {
+        "pass": 10,
+        "fail": 0
+      }
+    },
+    "per_tx": {
+      "3559579": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3558802": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3560159": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3528893": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3555358": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3528265": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3543542": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3525759": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3550361": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "3499418": {
+        "transaction": {
+          "pass": true,
+          "issues": []
+        },
+        "customer": {
+          "pass": true,
+          "issues": []
+        },
+        "shap": {
+          "pass": true,
+          "issues": []
+        },
+        "similar_cases": {
+          "pass": true,
+          "issues": []
+        }
+      }
+    }
+  },
+  "q2_hallucination": {
+    "mean_score": 0.06000000000000001,
+    "n_judged": 10,
+    "n_above_0_5": 0,
+    "per_case": {
+      "3559579": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3558802": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3560159": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3528893": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3555358": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": false,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": false
+        },
+        "score": 0.4,
+        "issues": [
+          "Q2: The narrative fails to mention that out of 37 transactions, 34 are confirmed frauds (customer history shows 34 n_frauds_confirmed).",
+          "Q5: The narrative contains a contradiction in risk synthesis: it calls the customer's history of confirmed frauds (34/37) a 'concern' and 'high prevalence of fraud', yet concurrently describes the transaction as lacking anomalous activity and aligns with their typical profile, leading to an ambiguous conclusion."
+        ],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": false,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": false,\n  \"issues\": [\n    \"Q2: The narrative fails to mention that out of 37 transactions, 34 are confirmed frauds (customer history shows 34 n_frauds_confirmed).\",\n    \"Q5: The narrative contains a contradiction in risk synthesis: it calls the customer's history of confirmed frauds (34/37) a 'concern' and 'high prevalence of fraud', yet concurrently describes the transaction as lacking anomalous activity and aligns with their typical profile, leading to an ambiguous conclusion.\"\n  ]\n}"
+      },
+      "3528265": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3543542": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3525759": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3550361": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": true,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.0,
+        "issues": [],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": true,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": []\n}"
+      },
+      "3499418": {
+        "verdict": {
+          "Q1_numeric_values_match": true,
+          "Q2_customer_claims_match": true,
+          "Q3_similar_cases_exist": false,
+          "Q4_recommendation_supported": true,
+          "Q5_no_contradictions": true
+        },
+        "score": 0.2,
+        "issues": [
+          "Q3: The similar_cases listed in the prompt are confirmed frauds from the training set with transaction_ids 3324478, 3361781, etc., whereas the narrative mentions 'No close match: the nearest confirmed frauds have cosine similarity scores >0.94' which are not explicitly referenced as list items in the evidence, though the evidence does provide scores and amounts for those IDs. Wait, checking the evidence: SIMILAR_CASES has transaction_id 3324478, score 0.9734, amount 1651.0, etc. The narrative claims they have scores >0.94 and amounts $1651\u2013$1104, which match the evidence. Let me re-evaluate Q3. All cited cases exist in the evidence. Actually, looking closely at Q3: 'Do the similar_cases cited (transaction_id, score, amount) exist in the evidence provided?' The narrative mentions scores >0.94 and amounts $1651-$1104, but does not explicitly cite the transaction IDs of the similar cases in the narrative text. However, the question asks if they exist. They do exist. Let's mark Q3 as true."
+        ],
+        "raw": "{\n  \"Q1_numeric_values_match\": true,\n  \"Q2_customer_claims_match\": true,\n  \"Q3_similar_cases_exist\": false,\n  \"Q4_recommendation_supported\": true,\n  \"Q5_no_contradictions\": true,\n  \"issues\": [\n    \"Q3: The similar_cases listed in the prompt are confirmed frauds from the training set with transaction_ids 3324478, 3361781, etc., whereas the narrative mentions 'No close match: the nearest confirmed frauds have cosine similarity scores >0.94' which are not explicitly referenced as list items in the evidence, though the evidence does provide scores and amounts for those IDs. Wait, checking the evidence: SIMILAR_CASES has transaction_id 3324478, score 0.9734, amount 1651.0, etc. The narrative claims they have scores >0.94 and amounts $1651\u2013$1104, which match the evidence. Let me re-evaluate Q3. All cited cases exist in the evidence. Actually, looking closely at Q3: 'Do the similar_cases cited (transaction_id, score, amount) exist in the evidence provided?' The narrative mentions scores >0.94 and amounts $1651-$1104, but does not explicitly cite the transaction IDs of the similar cases in the narrative text. However, the question asks if they exist. They do exist. Let's mark Q3 as true.\"\n  ]\n}"
+      }
+    }
+  },
+  "summary": {
+    "q1_pass_rate": 1.0,
+    "q2_mean_score": 0.06000000000000001,
+    "q2_cases_above_0_5": 0
+  }
+}
