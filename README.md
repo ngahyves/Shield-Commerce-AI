@@ -19,7 +19,7 @@
 - **Infrastructure**: Docker Compose (local), Kubernetes (production), GitHub Actions (CI)
 
 **Key results:**
-- **PR-AUC: 0.5786, ROC_AUC: 0.91** on strict temporal holdout — **16.5× lift** vs random
+- **PR-AUC: 0.5786, ROC_AUC: 0.91** on strict temporal holdout — **16.2× lift** vs random
 - **Latency (single request)**: 41 ms P50 per `/predict` — compatible with real-time authorization
 - **Latency (under load)**: 1 100 ms P50 at 2 replicas under 100 concurrent users — linear K8s scaling (P50 ÷2 vs 1 replica at 2 200 ms)
 - **94% agent faithfulness** — 10 narratives judged, 0 hallucination hotspots
@@ -487,7 +487,7 @@ the experiment or document where the number comes from.
 |---|---|---|
 | PR-AUC | **0.5786** | Temporal holdout, days 155-181 |
 | AUC-ROC | **0.9161** | Same holdout |
-| **Lift vs random** | **16.52×** | Same holdout |
+| **Lift vs random** | **16.16×** | Same holdout |
 | Feature count | **434 → 126** | Selection + engineering + target encoding |
 | Model configs compared | **4** | Silver / Gold / engineered / Gold+TE |
 | Hyperparameter trials | **25** | Optuna, 40-min timeout, objective=PR-AUC |
