@@ -20,6 +20,27 @@
 - Models: `classifier.pkl`, `target_encoder.pkl`, `calibrator.pkl`
 
 ---
+## Single-request latency (no load)
+
+The load test above measures latency **under 100 concurrent users**, where queue time dominates (P50 400-2200 ms). The **pure compute latency** — what a single client experiences — is measured separately on Docker Compose local (same code, same model, same data as K8s):
+
+| Request | Latency |
+|---------|---------|
+| 1 (cold) | 66 ms |
+| 2-10 (warm) | 40-44 ms |
+| **Median warm** | **~41 ms** |
+| **P95 warm** | **~44 ms** |
+
+**Breakdown** (from TIMING logs):
+- TargetEncoder: ~25-30 ms
+- LightGBM predict: ~4 ms
+- Calibrator: ~0.5 ms
+- FastAPI + Pydantic overhead: ~5 ms
+- Network localhost: ~2 ms
+
+**Interpretation**: the API scores one transaction in **~41 ms**. The P50 of 400 ms at 4 replicas under 100 users = **~41 ms compute + ~359 ms queue wait**. This confirms the load test bottleneck is queue/CPU saturation, not the scoring code itself.
+
+**K8s extrapolation**: adding ~5-10 ms of inter-pod network → single-request latency on K8s ≈ **~50 ms**.
 
 ## Results — horizontal scaling curve
 
